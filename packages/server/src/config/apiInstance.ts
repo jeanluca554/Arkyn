@@ -4,7 +4,7 @@ import { patchRequest } from "../api/patchRequest";
 import { postRequest } from "../api/postRequest";
 import { putRequest } from "../api/putRequest";
 
-type ApiInstanceContructorProps = {
+type ApiInstanceConstructorProps = {
   baseUrl: string;
   baseHeaders?: HeadersInit;
   baseToken?: string | null;
@@ -38,7 +38,7 @@ class ApiInstance {
    * @param props.baseToken - Optional base token for authorization.
    */
 
-  constructor(props: ApiInstanceContructorProps) {
+  constructor(props: ApiInstanceConstructorProps) {
     this.baseUrl = props.baseUrl;
     this.baseHeaders = props.baseHeaders || undefined;
     this.baseToken = props.baseToken || undefined;
@@ -76,26 +76,26 @@ class ApiInstance {
   }
 
   /**
-   * Sends a GET request to the specified route.
-   * @param route - The API route to send the GET request to.
+   * Sends a get request to the specified route.
+   * @param route - The API route to send the get request to.
    * @param data - The request data, including optional headers and token.
    * @returns The API response data.
    */
 
-  async GET(route: string, data?: ApiRequestDataWithoutBodyProps) {
+  async get(route: string, data?: ApiRequestDataWithoutBodyProps) {
     const url = this.generateURL(route);
     const headers = this.generateHeaders(data?.headers || {}, data?.token);
     return await getRequest(url, headers);
   }
 
   /**
-   * Sends a POST request to the specified route.
-   * @param route - The API route to send the POST request to.
+   * Sends a post request to the specified route.
+   * @param route - The API route to send the post request to.
    * @param data - The request data, including body, optional headers, and token.
    * @returns The API response data.
    */
 
-  async POST(route: string, data?: ApiRequestDataWithBodyProps) {
+  async post(route: string, data?: ApiRequestDataWithBodyProps) {
     const url = this.generateURL(route);
     const headers = this.generateHeaders(data?.headers || {}, data?.token);
     const body = data?.body;
@@ -103,13 +103,13 @@ class ApiInstance {
   }
 
   /**
-   * Sends a PUT request to the specified route.
-   * @param route - The API route to send the PUT request to.
+   * Sends a put request to the specified route.
+   * @param route - The API route to send the put request to.
    * @param data - The request data, including body, optional headers, and token.
    * @returns The API response data.
    */
 
-  async PUT(route: string, data?: ApiRequestDataWithBodyProps) {
+  async put(route: string, data?: ApiRequestDataWithBodyProps) {
     const url = this.generateURL(route);
     const headers = this.generateHeaders(data?.headers || {}, data?.token);
     const body = data?.body;
@@ -117,13 +117,13 @@ class ApiInstance {
   }
 
   /**
-   * Sends a PATCH request to the specified route.
-   * @param route - The API route to send the PATCH request to.
+   * Sends a patch request to the specified route.
+   * @param route - The API route to send the patch request to.
    * @param data - The request data, including body, optional headers, and token.
    * @returns The API response data.
    */
 
-  async PATCH(route: string, data?: ApiRequestDataWithBodyProps) {
+  async patch(route: string, data?: ApiRequestDataWithBodyProps) {
     const url = this.generateURL(route);
     const headers = this.generateHeaders(data?.headers || {}, data?.token);
     const body = data?.body;
@@ -131,13 +131,13 @@ class ApiInstance {
   }
 
   /**
-   * Sends a DELETE request to the specified route.
-   * @param route - The API route to send the DELETE request to.
+   * Sends a delete request to the specified route.
+   * @param route - The API route to send the delete request to.
    * @param data - The request data, including body, optional headers, and token.
    * @returns The API response data.
    */
 
-  async DELETE(route: string, data?: ApiRequestDataWithBodyProps) {
+  async delete(route: string, data?: ApiRequestDataWithBodyProps) {
     const url = this.generateURL(route);
     const headers = this.generateHeaders(data?.headers || {}, data?.token);
     const body = data?.body;
