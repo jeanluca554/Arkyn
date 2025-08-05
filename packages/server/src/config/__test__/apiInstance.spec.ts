@@ -23,11 +23,11 @@ describe("ApiInstance", () => {
     baseToken,
   });
 
-  it("should send a GET request with correct headers and URL", async () => {
-    const mockResponse = { success: true, data: "GET response" };
+  it("should send a get request with correct headers and URL", async () => {
+    const mockResponse = { success: true, data: "get response" };
     (getRequest as any).mockResolvedValueOnce(mockResponse);
 
-    const response = await apiInstance.GET("/resource", {});
+    const response = await apiInstance.get("/resource", {});
 
     expect(getRequest).toHaveBeenCalledWith(
       `${baseUrl}/resource`,
@@ -39,12 +39,12 @@ describe("ApiInstance", () => {
     expect(response).toEqual(mockResponse);
   });
 
-  it("should send a POST request with correct headers, URL, and body", async () => {
-    const mockResponse = { success: true, data: "POST response" };
+  it("should send a post request with correct headers, URL, and body", async () => {
+    const mockResponse = { success: true, data: "post response" };
     const mockBody = { name: "New Resource" };
     (postRequest as any).mockResolvedValueOnce(mockResponse);
 
-    const response = await apiInstance.POST("/resource", { body: mockBody });
+    const response = await apiInstance.post("/resource", { body: mockBody });
 
     expect(postRequest).toHaveBeenCalledWith(
       `${baseUrl}/resource`,
@@ -57,12 +57,12 @@ describe("ApiInstance", () => {
     expect(response).toEqual(mockResponse);
   });
 
-  it("should send a PUT request with correct headers, URL, and body", async () => {
-    const mockResponse = { success: true, data: "PUT response" };
+  it("should send a put request with correct headers, URL, and body", async () => {
+    const mockResponse = { success: true, data: "put response" };
     const mockBody = { name: "Updated Resource" };
     (putRequest as any).mockResolvedValueOnce(mockResponse);
 
-    const response = await apiInstance.PUT("/resource", { body: mockBody });
+    const response = await apiInstance.put("/resource", { body: mockBody });
 
     expect(putRequest).toHaveBeenCalledWith(
       `${baseUrl}/resource`,
@@ -75,12 +75,12 @@ describe("ApiInstance", () => {
     expect(response).toEqual(mockResponse);
   });
 
-  it("should send a PATCH request with correct headers, URL, and body", async () => {
-    const mockResponse = { success: true, data: "PATCH response" };
+  it("should send a patch request with correct headers, URL, and body", async () => {
+    const mockResponse = { success: true, data: "patch response" };
     const mockBody = { name: "Partially Updated Resource" };
     (patchRequest as any).mockResolvedValueOnce(mockResponse);
 
-    const response = await apiInstance.PATCH("/resource", { body: mockBody });
+    const response = await apiInstance.patch("/resource", { body: mockBody });
 
     expect(patchRequest).toHaveBeenCalledWith(
       `${baseUrl}/resource`,
@@ -93,12 +93,12 @@ describe("ApiInstance", () => {
     expect(response).toEqual(mockResponse);
   });
 
-  it("should send a DELETE request with correct headers, URL, and body", async () => {
-    const mockResponse = { success: true, data: "DELETE response" };
+  it("should send a delete request with correct headers, URL, and body", async () => {
+    const mockResponse = { success: true, data: "delete response" };
     const mockBody = { id: 1 };
     (deleteRequest as any).mockResolvedValueOnce(mockResponse);
 
-    const response = await apiInstance.DELETE("/resource", { body: mockBody });
+    const response = await apiInstance.delete("/resource", { body: mockBody });
 
     expect(deleteRequest).toHaveBeenCalledWith(
       `${baseUrl}/resource`,
@@ -112,10 +112,10 @@ describe("ApiInstance", () => {
   });
 
   it("should override base token with provided token", async () => {
-    const mockResponse = { success: true, data: "GET response with token" };
+    const mockResponse = { success: true, data: "get response with token" };
     (getRequest as any).mockResolvedValueOnce(mockResponse);
 
-    const response = await apiInstance.GET("/resource", { token: "new-token" });
+    const response = await apiInstance.get("/resource", { token: "new-token" });
 
     expect(getRequest).toHaveBeenCalledWith(
       `${baseUrl}/resource`,
