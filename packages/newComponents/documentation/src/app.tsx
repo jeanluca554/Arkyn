@@ -1,9 +1,11 @@
-import { Button } from "@components";
+import { Badge } from "@arkyn/components";
 
 function App() {
   return (
     <div style={{ padding: 40, maxWidth: 400 }}>
-      <Button scheme="success">Olá</Button>
+      <Badge scheme="success" size="lg">
+        Olá mundo!
+      </Badge>
     </div>
   );
 }

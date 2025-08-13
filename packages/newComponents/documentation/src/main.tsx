@@ -2,6 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { App } from "./app";
 
+import "@arkyn/components/dist/style.css";
 import "../css/reset.css";
 import "../css/variables.css";
 
